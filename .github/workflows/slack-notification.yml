@@ -29,12 +29,9 @@ jobs:
       - name: transform description
         shell: bash
         run: |
-          set script "
-          read -r -d '' DESCRIPTION << AAAAA
-          ${{ github.event.pull_request.body }} 
-          AAAAA
-          "
-          spawn bash -c $script
+          read -r -d '' DESCRIPTION << EOF
+          ${{ github.event.pull_request.body }}
+          EOF
           DESCRIPTION=${DESCRIPTION::150}
           echo ::set-output name=DESCRIPTION::${DESCRIPTION}
           
