@@ -45,8 +45,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "markdwn",
-                    "text": "*Pull Request*: ${{ github.event.pull_request.title }}\n" \
-                            "*Who?:* ${{ github.event.pull_request.user.login }}"
+                    "text": "*Pull Request*: ${{ github.event.pull_request.title }}\n*Who?:* ${{ github.event.pull_request.user.login }}"
                 },
                 {
                   "type": "section",
