@@ -42,9 +42,9 @@ jobs:
               "text": "Review request to Slack channel",
               "blocks": [
                 {
-                  "type": "header",
+                  "type": "section",
                   "text": {
-                    "type": "mrkdwn",
+                    "type": "plain_text",
                     "text": "@here Review Request from ${{ github.event.pull_request.user.login }}"
                   }
                 },
