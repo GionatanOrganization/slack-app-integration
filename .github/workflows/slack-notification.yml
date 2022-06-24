@@ -61,14 +61,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ github.event.pull_request.description }} "
-                  }
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "JSON: ${{ toJson(github.event.pull_request) }}"
+                    "text": "${{ github.event.pull_request.body }} "
                   }
                 }
               ]
