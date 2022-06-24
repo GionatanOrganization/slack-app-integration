@@ -11,8 +11,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "GionatanWorkflow"
-  specific_review_requested:
+  team_review_requested:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
@@ -59,7 +58,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ github.event.pull_request.description }}"
+                    "text": "${{ github.event.pull_request.description }} "
                   }
                 }
               ]
