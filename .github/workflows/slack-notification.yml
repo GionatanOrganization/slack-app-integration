@@ -27,7 +27,7 @@ jobs:
           SECRETS_CONTEXT: ${{ toJson(secrets) }}
           
       # My steps
-      - name: Send message to Slack Channel
+      - name: Review Request message to Slack Channel
         uses: slackapi/slack-github-action@v1.19.0
         env:
           SLACK_BOT_TOKEN: ${{ secrets.GIONATANBOT }}
@@ -56,6 +56,48 @@ jobs:
                     "type": "mrkdwn",
                     "text": "*Pull Request #${{ github.event.pull_request.number }}*: <${{ github.event.pull_request.html_url || github.event.head_commit.url }}|${{ github.event.pull_request.title }}>\n${{ github.event.pull_request.body }}"
                   }
+                }
+              ]
+            }
+
+  team_merge_request:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    if: ${{ github.event.requested_team.name == 'gionatanteam' }}
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Send message to Slack Channel
+        uses: slackapi/slack-github-action@v1.19.0
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.GIONATANBOT }}
+        with:
+          # Slack channel id, channel name, or user id to post message.
+          # See also: https://api.slack.com/methods/chat.postMessage#channels
+          channel-id: 'C03M384EA0K'
+          # For posting a simple plain text message
+          payload: |
+            {
+              "text": "Merge Request message to Slack channel",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "<!here|here>, *Merge Request* from <${{ github.event.pull_request.user.html_url }}|${{ github.event.pull_request.user.login }}>\n*Repo*: ${{ github.event.pull_request.base.repo.name }}"
+                  }
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Pull Request #${{ github.event.pull_request.number }}*: <${{ github.event.pull_request.html_url || github.event.head_commit.url }}|${{ github.event.pull_request.title }}>\n${{ github.event.pull_request.body }}"
+                  }
+                  "block_id": "${{ github.event.pull_request._links.html.href }}"
                 }
               ]
             }
