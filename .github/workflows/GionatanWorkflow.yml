@@ -21,7 +21,7 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world! ${{ secrets.GIONATANBOT }}
+        run: echo Hello, world! ${{ secrets }}
           
       # My steps
       - name: GionatanWorkflow
