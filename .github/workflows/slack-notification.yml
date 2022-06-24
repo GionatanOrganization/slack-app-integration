@@ -29,7 +29,7 @@ jobs:
       - name: transform description
         shell: bash
         run: |
-          DESCRIPTION="""${{ github.event.pull_request.body }}"""
+          DESCRIPTION=${{ github.event.pull_request.body::150 }}
           DESCRIPTION=${DESCRIPTION::150}
           echo ::set-output name=DESCRIPTION::${DESCRIPTION}
           
