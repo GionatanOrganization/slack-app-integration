@@ -42,17 +42,24 @@ jobs:
               "text": "Review request to Slack channel",
               "blocks": [
                 {
-                  "type": "section",
+                  "type": "header",
                   "text": {
-                    "type": "mrkdwn",
-                    "text": "*Review request* from ${{ github.event.pull_request.user.login }}\n*Repo*: ${{ github.event.pull_request.base.repo.name }}\n*Pull Request* #${{ github.event.pull_request.number }}: <${{ github.event.pull_request.html_url || github.event.head_commit.url }}|${{ github.event.pull_request.title }}>"
+                    "type": "plain_text",
+                    "text": "@here Review Request from ${{ github.event.pull_request.user.login }}"
                   }
                 },
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ github.event.pull_request.title }}"
+                    "text": "*${{ github.event.pull_request.base.repo.name }} #${{ github.event.pull_request.number }}: <${{ github.event.pull_request.html_url || github.event.head_commit.url }}|${{ github.event.pull_request.title }}>"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{ github.event.pull_request.description }}"
                   }
                 }
               ]
