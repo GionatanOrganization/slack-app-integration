@@ -44,7 +44,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Hey <!here|here>, there's a new *Review Request* from $<{{ github.event.pull_request.user.html_url }}|{{ github.event.pull_request.user.login }}> on ${{ github.event.pull_request.base.repo.name }}."
+                    "text": "<!here|here>, *Review Request* from <${{ github.event.pull_request.user.html_url }}|{{ github.event.pull_request.user.login }}> on ${{ github.event.pull_request.base.repo.name }}."
                   }
                 },
                 {
