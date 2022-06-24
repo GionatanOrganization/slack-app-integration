@@ -44,7 +44,7 @@ jobs:
                 {
                   "type": "header",
                   "text": {
-                    "type": "plain_text",
+                    "type": "mrkdwn",
                     "text": "@here Review Request from ${{ github.event.pull_request.user.login }}"
                   }
                 },
