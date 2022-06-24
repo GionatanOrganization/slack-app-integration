@@ -20,7 +20,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a single command using the runners shell
-      - name: view the secrets context
+      - name: view  the secrets context
         shell: bash
         run: echo "$SECRETS_CONTEXT"
         env:
